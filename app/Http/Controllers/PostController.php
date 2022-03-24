@@ -8,6 +8,14 @@ use App\Models\Post;
 class PostController extends Controller
 {
     /**
+     * Automatically authorize with standard Laravel naming conventions
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -27,7 +35,9 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $post = Post::create($request->all());
+        $input = $request->except('user_id');
+        $input['user_id'] = auth()->user()->id;
+        $post = Post::create($input);
 
         return response()->json($post, 201);
     }
