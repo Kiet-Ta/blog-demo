@@ -24,7 +24,6 @@ class PostRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'user_id' => 'required|exists:users,id',
             'title' => 'required',
             'content' => 'required',
         ];
