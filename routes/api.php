@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('register', [RegisterController::class, 'register']);
 Route::resource('posts', PostController::class);
 // Route::middleware('auth:sanctum')->group( function () {
 // });
