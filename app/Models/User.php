@@ -42,6 +42,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Only accept a valid password and hash a password before saving
+     */
+    public function setPasswordAttribute($password)
+    {
+        if ($password !== null & $password !== "") {
+            $this->attributes['password'] = bcrypt($password);
+        }
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
