@@ -18,7 +18,7 @@ class PostPolicy
      */
     public function viewAny(Post $post, User $user)
     {
-        return $user->id === $post->user_id;
+        return true;
     }
 
     /**

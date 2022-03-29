@@ -10,10 +10,10 @@ class PostController extends Controller
     /**
      * Automatically authorize with standard Laravel naming conventions
      */
-    public function __construct()
-    {
-        $this->authorizeResource(Post::class);
-    }
+    // public function __construct()
+    // {
+    //     $this->authorizeResource(Post::class);
+    // }
 
     /**
      * Display a listing of the resource.
