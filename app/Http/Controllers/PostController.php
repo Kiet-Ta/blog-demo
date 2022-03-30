@@ -35,9 +35,7 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $input = $request->except('user_id');
-        $input['user_id'] = auth()->user()->id;
-        $post = Post::create($input);
+        $post = Post::create($request->all());
 
         return response()->json($post, 201);
     }
