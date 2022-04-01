@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', [RegisterController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
-Route::resource('posts', PostController::class);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::resource('posts', PostController::class);
     Route::post('logout', [AuthController::class, 'logout']);
 });
