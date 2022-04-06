@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // force link from http to https when deploy on heroku to generate swagger UI
         if ($this->app->environment('production')) {
             URL::forceScheme('https');
         }
