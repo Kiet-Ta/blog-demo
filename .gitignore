@@ -13,3 +13,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# Swagger API docs json
+storage/api-docs/api-docs.json
